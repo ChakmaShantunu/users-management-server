@@ -4,6 +4,7 @@ const app = express();
 const port = process.env.port || 3000;
 
 app.use(cors());
+app.use(express.json());
 
 app.get('/', (req, res) => {
     res.send("Hello world")
@@ -42,7 +43,12 @@ const users = [
 
 app.get("/users", (req, res) => {
     res.send(users);
-})
+});
+
+app.post("/users", (req, res) => {
+    console.log("Users post method");
+    console.log(req.body);
+});
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
