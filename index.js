@@ -57,6 +57,11 @@ app.post("/users", (req, res) => {
     res.send(newUser);
 });
 
+app.post("/restaurants", (req, res) => {
+    console.log("Restaurants post method");
+    console.log(req.body);
+});
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 })
