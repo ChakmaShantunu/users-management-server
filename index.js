@@ -48,6 +48,13 @@ app.get("/users", (req, res) => {
 app.post("/users", (req, res) => {
     console.log("Users post method");
     console.log(req.body);
+    const newUser = req.body;
+    newUser.id = users.length + 1;
+
+    // add data to the server
+    users.push(newUser);
+
+    res.send(newUser);
 });
 
 app.listen(port, () => {
