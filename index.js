@@ -41,8 +41,35 @@ const users = [
     }
 ];
 
+const restaurants = [
+    {
+        "_id": "1",
+        "name": "Kacchi Bhai",
+        "email": "kacchibhai@gmail.com"
+    },
+    {
+        "_id": "2",
+        "name": "Sultan's Dine",
+        "email": "sultansdine@gmail.com"
+    },
+    {
+        "_id": "3",
+        "name": "Star Kabab",
+        "email": "starkabab@gmail.com"
+    },
+    {
+        "_id": "4",
+        "name": "Handi Restaurant",
+        "email": "handi@gmail.com"
+    }
+]
+
 app.get("/users", (req, res) => {
     res.send(users);
+});
+
+app.get("/restaurants", (req, res) => {
+    res.send(restaurants);
 });
 
 app.post("/users", (req, res) => {
@@ -59,7 +86,9 @@ app.post("/users", (req, res) => {
 
 app.post("/restaurants", (req, res) => {
     console.log("Restaurants post method");
-    console.log(req.body);
+    const newRestaurant = req.body;
+    restaurants.push(newRestaurant);
+    res.send(newRestaurant);
 });
 
 app.listen(port, () => {
