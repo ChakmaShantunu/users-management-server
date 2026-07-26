@@ -43,26 +43,49 @@ const users = [
 
 const restaurants = [
     {
-        "_id": "1",
+        "_id": 1,
         "name": "Kacchi Bhai",
         "email": "kacchibhai@gmail.com"
     },
     {
-        "_id": "2",
+        "_id": 2,
         "name": "Sultan's Dine",
         "email": "sultansdine@gmail.com"
     },
     {
-        "_id": "3",
+        "_id": 3,
         "name": "Star Kabab",
         "email": "starkabab@gmail.com"
     },
     {
-        "_id": "4",
+        "_id": 4,
         "name": "Handi Restaurant",
         "email": "handi@gmail.com"
     }
-]
+];
+
+const animals = [
+    {
+        id: 1,
+        name: "Royal Bengal Tiger",
+        scientificName: "Panthera tigris tigris"
+    },
+    {
+        id: 2,
+        name: "African Elephant",
+        scientificName: "Loxodonta africana"
+    },
+    {
+        id: 3,
+        name: "Domestic Cat",
+        scientificName: "Felis catus"
+    },
+    {
+        id: 4,
+        name: "Domestic Dog",
+        scientificName: "Canis lupus familiaris"
+    }
+];
 
 app.get("/users", (req, res) => {
     res.send(users);
@@ -70,6 +93,10 @@ app.get("/users", (req, res) => {
 
 app.get("/restaurants", (req, res) => {
     res.send(restaurants);
+});
+
+app.get("/animals", (req, res) => {
+    res.send(animals);
 });
 
 app.post("/users", (req, res) => {
@@ -87,6 +114,9 @@ app.post("/users", (req, res) => {
 app.post("/restaurants", (req, res) => {
     console.log("Restaurants post method");
     const newRestaurant = req.body;
+    newRestaurant.id = restaurants.length + 1;
+
+    // add data to the server
     restaurants.push(newRestaurant);
     res.send(newRestaurant);
 });
