@@ -123,6 +123,12 @@ app.post("/restaurants", (req, res) => {
 
 app.post("/animals", (req, res) => {
     console.log("animals post method");
+    const newAnimal = req.body;
+    newAnimal.id = animals.length + 1;
+
+    // add to the server
+    animals.push(newAnimal);
+    res.send(newAnimal);
 });
 
 app.listen(port, () => {
