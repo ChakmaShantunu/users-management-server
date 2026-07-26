@@ -121,6 +121,10 @@ app.post("/restaurants", (req, res) => {
     res.send(newRestaurant);
 });
 
+app.post("/animals", (req, res) => {
+    console.log("animals post method");
+});
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 })
